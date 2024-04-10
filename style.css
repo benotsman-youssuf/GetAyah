@@ -106,3 +106,27 @@ body {
 #butn i {
     margin-right: 0.5rem;
 }
+
+/* //////////////////////////////////////////////// */
+@media screen and (max-width: 768px) {
+    #wrapper {
+        width: 90%;
+    }
+    #aya {
+        font-size: 20px;
+    }
+    #head{
+        font-size: 1.6rem;
+    }
+    #butn {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+    }
+    #tafsir{
+        font-size: 15px;
+    }
+    #wrapper {
+        padding: 0.5rem;
+    }
+    
+}
