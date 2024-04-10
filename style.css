@@ -54,17 +54,30 @@ body {
     gap: 1rem;
     backdrop-filter: blur(10px);
 }
-
+#head{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
 /* Aya styles */
 #aya {
     font-family: 'Amiri Quran', serif;
     font-size: 30px;
     color: #333;
 }
-#taf{
-    font-size: 20px;
+
+#tafasir {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+#tafasir > button {
+    border: none;
+    background-color: transparent;
     color: #ff0000;
-    margin-bottom: -30px;
+    font-family: 'amiri';
+    font-size: 15px;
 }
 
 /* Button styles */
@@ -112,26 +125,39 @@ body {
     margin-right: 0.5rem;
 }
 
-/* //////////////////////////////////////////////// */
+/* Media queries */
 @media screen and (max-width: 768px) {
     #wrapper {
         width: 90%;
+        padding: 0.5rem;
     }
     #aya {
         font-size: 20px;
     }
-    #head{
+    #head {
         font-size: 1.6rem;
     }
     #butn {
         padding: 0.8rem 1.6rem;
         font-size: 1rem;
     }
-    #tafsir{
+    #tafsir {
         font-size: 15px;
     }
-    #wrapper {
-        padding: 0.5rem;
-    }
-    
+}
+
+#tafasir > button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+#tafasir > button.active {
+    color: #003b5c;
+    font-weight: bold;
 }
