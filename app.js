@@ -1,3 +1,4 @@
+// Get the necessary DOM elements
 const surrahElement = document.getElementById("surrah");
 const ayaNumElement = document.getElementById("aya-num");
 const ayaElement = document.getElementById("aya");
@@ -8,58 +9,82 @@ const moyassarElement = document.getElementById("moyassar");
 const saadiElement = document.getElementById("saadi");
 const enElement = document.getElementById("en");
 
+// Variables to store the current surah and ayah numbers
 let surrahNum, ayahNum;
 
+// Function to fetch a random ayah
 const fetchAya = async () => {
-  try {
-    const random = getRandomInt(1, 6236);
-    const response = await fetch(
-      `https://api.alquran.cloud/v1/ayah/${random}/ar.alafasy`
-    );
-    const data = await response.json();
+    try {
+        // Generate a random number between 1 and 6236
+        const random = getRandomInt(1, 6236);
 
-    const surrah = data.data.surah.name;
-    const ayah = data.data.text;
-    surrahNum = data.data.surah.number;
-    ayahNum = data.data.numberInSurah;
+        // Fetch the ayah data from the API
+        const response = await fetch(
+            `https://api.alquran.cloud/v1/ayah/${random}/ar.alafasy`
+        );
+        const data = await response.json();
 
-    surrahElement.textContent = surrah;
-    ayaElement.textContent = ayah;
-    ayaNumElement.textContent = ayahNum;
-    audioElement.src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${random}.mp3`;
-    fetchTafseer(1);
-  } catch (error) {
-    console.error("Error fetching Aya:", error);
-  }
+        // Extract the surah name, ayah text, surah number, and ayah number
+        const surrah = data.data.surah.name;
+        const ayah = data.data.text;
+        surrahNum = data.data.surah.number;
+        ayahNum = data.data.numberInSurah;
+
+        // Update the DOM elements with the fetched data
+        surrahElement.textContent = surrah;
+        ayaElement.textContent = ayah;
+        ayaNumElement.textContent = ayahNum;
+
+        // Set the audio source to the corresponding recitation of the ayah
+        audioElement.src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${random}.mp3`;
+
+        // Fetch the default tafseer
+        fetchTafseer(1);
+    } catch (error) {
+        console.error("Error fetching Aya:", error);
+    }
 };
 
+// Function to fetch tafseer based on the selected tafseer ID
 const fetchTafseer = async (tafsiirId) => {
-  try {
-    const response = await fetch(
-      `http://api.quran-tafseer.com/tafseer/${tafsiirId}/${surrahNum}/${ayahNum}`
-    );
-    const data = await response.json();
-    const tafseer = data.text;
-    tafseerElement.textContent = tafseer;
-  } catch (error) {
-    console.error("Error fetching Tafseer:", error);
-  }
+    try {
+        // Fetch the tafseer data from the API
+        const response = await fetch(
+            `http://api.quran-tafseer.com/tafseer/${tafsiirId}/${surrahNum}/${ayahNum}`
+        );
+        const data = await response.json();
+
+        // Extract the tafseer text
+        const tafseer = data.text;
+
+        // Update the tafseer element in the DOM
+        tafseerElement.textContent = tafseer;
+    } catch (error) {
+        console.error("Error fetching Tafseer:", error);
+    }
 };
 
+// Event listener for the "Fetch Ayah" button
 btnElement.addEventListener("click", fetchAya);
-// moyassarElement.addEventListener("click", () => fetchTafseer(1));
-// saadiElement.addEventListener("click", () => fetchTafseer(3));
-// enElement.addEventListener("click", () => fetchTafseer(10));
 
+// Event listeners for the tafseer buttons
+moyassarElement.addEventListener("click", () => fetchTafseer(1));
+saadiElement.addEventListener("click", () => fetchTafseer(3));
+enElement.addEventListener("click", () => fetchTafseer(10));
+
+// Function to generate a random integer between min and max (inclusive)
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// const buttons = document.querySelectorAll("#tafasir > button");
+// Event listeners for the tafseer buttons
+const buttons = document.querySelectorAll("#tafasir > button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // Remove the "active" class from all buttons
+        buttons.forEach((btn) => btn.classList.remove("active"));
 
-// buttons.forEach((button) => {
-//   button.addEventListener("click", () => {
-//     buttons.forEach((btn) => btn.classList.remove("active"));
-//     button.classList.add("active");
-//   });
-// });
+        // Add the "active" class to the clicked button
+        button.classList.add("active");
+    });
+});
