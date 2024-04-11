@@ -10,7 +10,7 @@ const saadiElement = document.getElementById("saadi");
 const enElement = document.getElementById("en");
 
 // Variables to store the current surah and ayah numbers
-let surrahNum, ayahNum;
+let surrahNum, ayahNum ,saadiSlug ,muyassarSlag;
 
 // Function to fetch a random ayah
 const fetchAya = async () => {
@@ -39,18 +39,21 @@ const fetchAya = async () => {
         audioElement.src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${random}.mp3`;
 
         // Fetch the default tafseer
-        fetchTafseer(1);
+        fetchTafseer(muyassarSlag);
     } catch (error) {
         console.error("Error fetching Aya:", error);
     }
 };
 
 // Function to fetch tafseer based on the selected tafseer ID
-const fetchTafseer = async (tafsiirId) => {
+saadiSlug = 'ar-tafseer-al-saddi';
+muyassarSlag = 'ar-tafsir-muyassar';
+
+const fetchTafseer = async (tafsiirSlug) => {
     try {
         // Fetch the tafseer data from the API
         const response = await fetch(
-            `http://api.quran-tafseer.com/tafseer/${tafsiirId}/${surrahNum}/${ayahNum}`
+            `https://cdn.jsdelivr.net/gh/spa5k/tafsir_api@main/tafsir/${tafsiirSlug}/${surrahNum}/${ayahNum}.json`
         );
         const data = await response.json();
 
@@ -68,9 +71,9 @@ const fetchTafseer = async (tafsiirId) => {
 btnElement.addEventListener("click", fetchAya);
 
 // Event listeners for the tafseer buttons
-moyassarElement.addEventListener("click", () => fetchTafseer(1));
-saadiElement.addEventListener("click", () => fetchTafseer(3));
-enElement.addEventListener("click", () => fetchTafseer(10));
+moyassarElement.addEventListener("click", () => fetchTafseer(muyassarSlag));
+saadiElement.addEventListener("click", () => fetchTafseer(saadiSlug));
+// enElement.addEventListener("click", () => fetchTafseer(10));
 
 // Function to generate a random integer between min and max (inclusive)
 function getRandomInt(min, max) {
