@@ -1,5 +1,5 @@
 <!-- # Ayat Project -->
-<h1 align="center">Tafsir API</h1>
+<h1 align="center">Get Ayah</h1>
 
 <p align="center">
   <img  src="./img/Screenshot from 2024-04-11 07-05-17.png">
