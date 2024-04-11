@@ -47,19 +47,19 @@ const fetchTafseer = async (tafsiirId) => {
 };
 
 btnElement.addEventListener("click", fetchAya);
-moyassarElement.addEventListener("click", () => fetchTafseer(1));
-saadiElement.addEventListener("click", () => fetchTafseer(3));
-enElement.addEventListener("click", () => fetchTafseer(10));
+// moyassarElement.addEventListener("click", () => fetchTafseer(1));
+// saadiElement.addEventListener("click", () => fetchTafseer(3));
+// enElement.addEventListener("click", () => fetchTafseer(10));
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const buttons = document.querySelectorAll("#tafasir > button");
+// const buttons = document.querySelectorAll("#tafasir > button");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-  });
-});
+// buttons.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     buttons.forEach((btn) => btn.classList.remove("active"));
+//     button.classList.add("active");
+//   });
+// });
