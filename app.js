@@ -69,6 +69,7 @@ const fetchTafseer = async (tafsiirSlug) => {
 
 // Event listener for the "Fetch Ayah" button
 btnElement.addEventListener("click", fetchAya);
+window.onload = function() {fetchAya()};
 
 // Event listeners for the tafseer buttons
 moyassarElement.addEventListener("click", () => fetchTafseer(muyassarSlag));
