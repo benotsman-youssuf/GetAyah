@@ -19,7 +19,7 @@
 1. Open the `index.html` file in your web browser.
 2. The application will automatically fetch and display an Ayah.
 3. To fetch a new Ayah, click on the button labeled "ارني اية".
-4. To fetch Tafseer, click on the button labeled "التفسير الميسر" or "تفسير السعدي".
+4. To fetch Tafseer, click on the button labeled'"تفسير ابن كثير", "التفسير الميسر" or "تفسير السعدي".
 
 ## Dependencies
 
