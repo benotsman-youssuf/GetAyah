@@ -2,7 +2,7 @@
 <h1 align="center">Get Ayah</h1>
 
 <p align="center">
-  <img  src="./img/Screenshot from 2024-04-11 07-05-17.png">
+  <img  src="./img/img.png">
 </p>
 
 <h2 align="center">This project is a simple web application that fetches and displays Ayahs from the Quran with Tafsser.</h2>

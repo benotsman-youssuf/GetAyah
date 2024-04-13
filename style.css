@@ -97,8 +97,8 @@ body {
 
 #tafsir:hover {
   transition: all 0.3s ease-in-out;
-  background-color: whitesmoke;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(245, 245, 245, 0.819);
+  box-shadow: inset 0px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 #tafsir::-webkit-scrollbar {
@@ -194,6 +194,6 @@ body {
 }
 
 #tafasir > button.active {
-  color: #BC8F8F; /* RosyBrown */
-  font-weight: bold;
+  color: #D09F58; /* RosyBrown */
+  font-weight: bolder;
 }
