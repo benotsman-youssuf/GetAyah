@@ -4,184 +4,196 @@
 
 /* Body styles */
 body {
-    font-family: 'Amiri', serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+  font-family: 'Amiri', serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #D2B48C; /* Tan */
+  color: #502A0A; /* Dark Wood */
 }
 
 /* Background animation */
 #bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #005a7c, #00a8e8, #003b5c);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #A0522D, #BC8F8F, #8B4513); /* SaddleBrown, RosyBrown, SaddleBrown */
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  z-index: -1;
 }
 
 @keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Wrapper styles */
 #wrapper {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-    width: 600px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
 }
-#head{
-    font-size: 1.3rem;
-    font-weight: bold;
+
+#head {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #A0522D; /* SaddleBrown */
 }
+
 /* Aya styles */
 #aya {
-    font-family: 'Amiri Quran', serif;
-    font-size: 30px;
-    color: #333;
+  font-family: 'Amiri Quran', serif;
+  font-size: 30px;
+  color: #333;
 }
 
 #tafasir {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: -20px;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: -20px;
 }
 
 #tafasir > button {
-    border: none;
-    background-color: transparent;
-    color: #ff0000;
-    font-family: 'amiri';
-    font-size: 15px;
-}
-#tafsir{
-    overflow-y: scroll;
-    max-height: 200px;
-    font-size: 20px;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease-in-out;
-}
-#tafsir:hover{
-    transition: all 0.3s ease-in-out;
-    background-color: whitesmoke;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-#tafsir::-webkit-scrollbar {
-    width: 10px;
-    background-color: transparent;
-}
-#tafsir::-webkit-scrollbar-thumb {
-    background-color: #5555552e;
-    border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  color: #BC8F8F; /* RosyBrown */
+  font-family: 'amiri';
+  font-size: 15px;
 }
 
+#tafsir {
+  overflow-y: scroll;
+  max-height: 200px;
+  font-size: 20px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#tafsir:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: whitesmoke;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tafsir::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+#tafsir::-webkit-scrollbar-thumb {
+  background-color: #5555552e;
+  border-radius: 10px;
+}
 
 /* Button styles */
 #butn {
-    background-color: #003b5c;
-    color: #fff;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 2rem;
-    font-size: 1.2rem;
-    font-family: 'Amiri', serif;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
+  background-color: #8B4513; /* SaddleBrown */
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-family: 'Amiri', serif;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 #butn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 #butn:hover::before {
-    width: 200%;
-    height: 200%;
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+  width: 200%;
+  height: 200%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 #butn:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-    transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
 }
 
 #butn i {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 /* Media queries */
 @media screen and (max-width: 768px) {
-    #wrapper {
-        width: 90%;
-        padding: 0.5rem;
-    }
-    #aya {
-        font-size: 20px;
-    }
-    #head {
-        font-size: 1.6rem;
-    }
-    #butn {
-        padding: 0.8rem 1.6rem;
-        font-size: 1rem;
-    }
-    #tafsir {
-        font-size: 15px;
-    }
+  #wrapper {
+    width: 90%;
+    padding: 0.5rem;
+  }
+
+  #aya {
+    font-size: 20px;
+  }
+
+  #head {
+    font-size: 1.6rem;
+  }
+
+  #butn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  #tafsir {
+    font-size: 15px;
+    max-height: 100px;
+  }
 }
 
 #tafasir > button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: transparent;
-    transition: all 0.3s ease-in-out;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 #tafasir > button.active {
-    color: #003b5c;
-    font-weight: bold;
+  color: #BC8F8F; /* RosyBrown */
+  font-weight: bold;
 }
