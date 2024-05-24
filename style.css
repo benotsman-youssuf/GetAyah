@@ -197,3 +197,12 @@ body {
   color: #D09F58; /* RosyBrown */
   font-weight: bolder;
 }
+.clicks{
+  display: flex;
+  gap: 100px;
+}
+.next , .previous{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
