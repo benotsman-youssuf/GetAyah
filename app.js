@@ -5,6 +5,7 @@ const ayaElement = document.getElementById("aya");
 const btnElement = document.getElementById("butn");
 const audioElement = document.getElementById("audio");
 const tafseerElement = document.getElementById("tafsir");
+const nextaya = document.getElementById("nextayah");
 const moyassarElement = document.getElementById("moyassar");
 const saadiElement = document.getElementById("saadi");
 const ibnkathirElement = document.getElementById("ibn-kathir");
@@ -14,10 +15,8 @@ const previous = document.querySelector(".previous");
 
 
 // Variables to store the current surah and ayah numbers
-let surrahNum, ayahNum ,saadiSlug ,muyassarSlug, ibnkathirSlug;
+let surrahNum, ayahNum ,saadiSlug ,muyassarSlug, ibnkathirSlug , numberOfAyahs , RandomNum , NextAyah;
 
-const RandomNum = getRandomInt(1 , 6236);
-let nxt = RandomNum ;
 // Function to fetch a random ayah
 const fetchAya = async (random) => {
     try {        
@@ -27,16 +26,26 @@ const fetchAya = async (random) => {
         );
         const data = await response.json();
 
+        const nextresponse = await fetch(
+            `https://api.alquran.cloud/v1/ayah/${random+1}/ar.alafasy`
+        );
+        const nextdata = await nextresponse.json();
+
         // Extract the surah name, ayah text, surah number, and ayah number
         const surrah = data.data.surah.name;
         const ayah = data.data.text;
         surrahNum = data.data.surah.number;
         ayahNum = data.data.numberInSurah;
+        numberOfAyahs = data.data.surah.numberOfAyahs;
+
+        const nextp = nextdata.data.text;
 
         // Update the DOM elements with the fetched data
         surrahElement.textContent = surrah;
         ayaElement.textContent = ayah;
         ayaNumElement.textContent = ayahNum;
+
+        nextaya.textContent = selectFirstTwoWords(nextp);
 
         // Set the audio source to the corresponding recitation of the ayah
         audioElement.src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${random}.mp3`;
@@ -70,21 +79,23 @@ const fetchTafseer = async (tafsiirSlug) => {
         console.error("Error fetching Tafseer:", error);
     }
 };
-
+let clicks = 0;
 // Event listener for the "Fetch Ayah" button
 btnElement.addEventListener('click' , () => {
+    RandomNum = getRandomInt(1 , 6236);
     fetchAya(RandomNum);
-    console.log(RandomNum);
 });
 next.addEventListener('click' , () => {
-    nxt++;
-    fetchAya(nxt);
-    console.log(nxt);
+    clicks++;
+    RandomNum++ ;
+    console.log(RandomNum);
+    fetchAya(RandomNum);
 });
-previous.addEventListener('click' , () =>{
-    nxt--;
-    fetchAya(nxt);
-});
+previous.addEventListener('click' , () => {
+    RandomNum--;
+    console.log(RandomNum);
+    fetchAya(RandomNum);
+})
 
 window.onload = function() {fetchAya(RandomNum)};
 
@@ -110,3 +121,9 @@ buttons.forEach((button) => {
         button.classList.add("active");
     });
 });
+function selectFirstTwoWords(str) {
+    const words = str.split(/\s+/);
+    const firstTwoWords = words.slice(0, 2);
+    const result = firstTwoWords.join(' ');
+    return result;
+}
