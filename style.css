@@ -10,22 +10,28 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: hidden;
   background-color: #D2B48C; /* Tan */
   color: #502A0A; /* Dark Wood */
 }
 
 /* Background animation */
-#bg-animation {
+#particles-js {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, #A0522D, #BC8F8F, #8B4513); /* SaddleBrown, RosyBrown, SaddleBrown */
-  background-size: 400% 400%;
+   background-size: 400% 400%; 
   animation: gradientAnimation 15s ease infinite;
   z-index: -1;
+
+ 
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+
 }
 
 @keyframes gradientAnimation {
@@ -160,32 +166,6 @@ button {
   margin-right: 0.5rem;
 }
 
-/* Media queries */
-@media screen and (max-width: 768px) {
-
-  #wrapper {
-    width: 90%;
-    padding: 0.5rem;
-  }
-
-  #aya {
-    font-size: 20px;
-  }
-
-  #head {
-    font-size: 1.6rem;
-  }
-
-  #butn {
-    padding: 0.8rem 1.6rem;
-    font-size: 1rem;
-  }
-
-  #tafsir {
-    font-size: 15px;
-    max-height: 100px;
-  }
-}
 
 #tafasir > button::after {
   content: '';
@@ -221,16 +201,55 @@ button {
   transition: all 0.3ms ease-in-out;
 }
 
-#nextayah {
+.nextayah {
   position: absolute;
   width: 30%;
   left: 0px;
-  bottom: -74px;
-  background-color: rgba(255, 255, 255, 0.8);
+  bottom: -60px;
+  background-color: #ffffffcc;
   border-radius: 0px 0px 16px 16px;
-  font-size: 1.3rem;
-  padding: 0.5rem;
-  backdrop-filter: blur(10px);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+#nextayah {
+  filter: blur(4px);
+  font-size: 1.4rem;
+  margin: 1rem 1rem 0.3rem 1rem;
+  cursor: pointer;
+}
+#aya-num{
+  color: white;
+  background:#A0522D;
+  border-radius: 10px;
+}
 
+@media screen and (max-width: 768px) {
+  #nextayah{
+    font-size: 1.1rem;
+  }
+  .nextayah {
+    width: 30%;
+    bottom: -50px;
+  }
+  #wrapper {
+    width: 90%;
+    padding: 0.5rem;
+  }
+
+  #aya {
+    font-size: 20px;
+  }
+
+  #head {
+    font-size: 1.6rem;
+  }
+
+  #butn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  #tafsir {
+    font-size: 15px;
+    max-height: 100px;
+  }
 }
