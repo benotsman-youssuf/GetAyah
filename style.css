@@ -23,15 +23,11 @@ body {
   width: 100%;
   height: 100%;
   background: linear-gradient(45deg, #A0522D, #BC8F8F, #8B4513); /* SaddleBrown, RosyBrown, SaddleBrown */
-   background-size: 400% 400%; 
+  background-size: 400% 400%; 
   animation: gradientAnimation 15s ease infinite;
   z-index: -1;
-
- 
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-
-
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
 
 @keyframes gradientAnimation {
@@ -63,7 +59,7 @@ body {
 }
 
 #head {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #A0522D; /* SaddleBrown */
 }
@@ -71,7 +67,7 @@ body {
 /* Aya styles */
 #aya {
   font-family: 'Amiri Quran', serif;
-  font-size: 30px;
+  font-size: 2rem;
   color: #333;
 }
 
@@ -166,7 +162,6 @@ button {
   margin-right: 0.5rem;
 }
 
-
 #tafasir > button::after {
   content: '';
   position: absolute;
@@ -210,20 +205,22 @@ button {
   border-radius: 0px 0px 16px 16px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+
 #nextayah {
   filter: blur(4px);
   font-size: 1.4rem;
   margin: 1rem 1rem 0.3rem 1rem;
   cursor: pointer;
 }
-#aya-num{
+
+#aya-num {
   color: white;
-  background:#A0522D;
+  background: #A0522D;
   border-radius: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  #nextayah{
+  #nextayah {
     font-size: 1.1rem;
   }
   .nextayah {
@@ -234,20 +231,16 @@ button {
     width: 90%;
     padding: 0.5rem;
   }
-
   #aya {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
-
   #head {
     font-size: 1.6rem;
   }
-
   #butn {
     padding: 0.8rem 1.6rem;
     font-size: 1rem;
   }
-
   #tafsir {
     font-size: 15px;
     max-height: 100px;
