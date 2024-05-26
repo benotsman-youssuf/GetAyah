@@ -97,7 +97,10 @@ previous.addEventListener('click' , () => {
     fetchAya(RandomNum);
 })
 
-window.onload = function() {fetchAya(RandomNum)};
+window.onload = function() {
+    RandomNum = getRandomInt(1 ,6236 );
+    fetchAya(RandomNum);
+};
 
 // Event listeners for the tafseer buttons
 moyassarElement.addEventListener("click", () => fetchTafseer(muyassarSlug));

@@ -162,6 +162,7 @@ button {
 
 /* Media queries */
 @media screen and (max-width: 768px) {
+
   #wrapper {
     width: 90%;
     padding: 0.5rem;
@@ -229,4 +230,7 @@ button {
   border-radius: 0px 0px 16px 16px;
   font-size: 1.3rem;
   padding: 0.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+
 }
