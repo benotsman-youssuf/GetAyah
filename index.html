@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./img/logo.ico">
+
     <title>Ayat</title>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div id="particles-js"></div>
+    <button id="theme"><i class="fa-solid fa-moon fa-2xl"></i></button>
     <div id="wrapper">
         <div id="head">
             <span id="surrah"></span>
             <span id="aya-num"></span>
         </div>
-        <p id="aya"></p>
+        <div class="aya">
+            <p id="aya"></p>
+        </div>
         <div id="tafasir">
             <button id="moyassar">التفسير الميسر</button>
             <button id="saadi">تفسير السعدي</button>
@@ -32,7 +37,7 @@
             <p id="nextayah"></p>
         </div>
     </div>
-    <script src="./app.js"></script>
-    <script src="./particles.js"></script>
+    <script src="./JS/app.js"></script>
+    <script src="./JS/particles.js"></script>
 </body>
 </html>

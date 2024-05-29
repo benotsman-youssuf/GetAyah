@@ -10,14 +10,14 @@ const moyassarElement = document.getElementById("moyassar");
 const saadiElement = document.getElementById("saadi");
 const ibnkathirElement = document.getElementById("ibn-kathir");
 
+const root = document.documentElement;
+const theme = document.getElementById("theme")
+
 const next = document.querySelector(".next");
 const previous = document.querySelector(".previous");
 
-
-// Variables to store the current surah and ayah numbers
 let surrahNum, ayahNum ,saadiSlug ,muyassarSlug, ibnkathirSlug , numberOfAyahs , RandomNum , NextAyah;
 
-// Function to fetch a random ayah
 const fetchAya = async (random) => {
     try {        
         // Fetch the ayah data from the API
@@ -30,7 +30,7 @@ const fetchAya = async (random) => {
             `https://api.alquran.cloud/v1/ayah/${random+1}/ar.alafasy`
         );
         const nextdata = await nextresponse.json();
-
+        
         // Extract the surah name, ayah text, surah number, and ayah number
         const surrah = data.data.surah.name;
         const ayah = data.data.text;
@@ -82,18 +82,19 @@ const fetchTafseer = async (tafsiirSlug) => {
 let clicks = 0;
 // Event listener for the "Fetch Ayah" button
 btnElement.addEventListener('click' , () => {
-    RandomNum = getRandomInt(1 , 6236);
+    RandomNum = 289;
     fetchAya(RandomNum);
 });
 next.addEventListener('click' , () => {
+    
     clicks++;
     RandomNum++ ;
     console.log(RandomNum);
     fetchAya(RandomNum);
+
 });
 previous.addEventListener('click' , () => {
     RandomNum--;
-    console.log(RandomNum);
     fetchAya(RandomNum);
 })
 
@@ -101,6 +102,7 @@ window.onload = function() {
     RandomNum = getRandomInt(1 ,6236 );
     fetchAya(RandomNum);
 };
+// controlling next aya behaviour
 nextaya.addEventListener('click' , ()=>{
     if (nextaya.style.filter === 'blur(0px)') {
         nextaya.style.filter = 'blur(4px)';
@@ -244,4 +246,45 @@ document.addEventListener('DOMContentLoaded', function () {
         retina_detect: true
     });
 });
+
+function changeMode(){
+    if (theme.innerHTML === '<i class="fa-solid fa-brightness fa-2xl"></i>') {
+        theme.innerHTML = '<i class="fa-solid fa-moon fa-2xl"></i> ';
+    } else {
+        theme.innerHTML = '<i class="fa-solid fa-brightness fa-2xl"></i>';
+    }
+  }
   
+theme.addEventListener('click' , ()=>{
+    const computedStyle = getComputedStyle(root);
+    const currentTheme = computedStyle.getPropertyValue('--body-bg-color').trim();
+    changeMode();
+    if (currentTheme === '#D2B48C') {
+        root.style.setProperty('--body-bg-color', '#121212'); /* Very dark background */
+        root.style.setProperty('--body-text-color', '#E0E0E0'); /* Light text */
+        root.style.setProperty('--primary-bg-color', 'linear-gradient(45deg, #1F1F1F, #282828, #0F0F0F)'); /* Dark gradient */
+        root.style.setProperty('--secondary-bg-color', 'rgba(40, 40, 40, 0.9)'); /* Dark translucent background */
+        root.style.setProperty('--button-bg-color', '#444444'); /* Dark button background */
+        root.style.setProperty('--button-text-color', '#FFFFFF'); /* White text */
+        root.style.setProperty('--button-hover-color', 'rgba(255, 255, 255, 0.1)'); /* Light hover color */
+        root.style.setProperty('--button-hover-shadow', '0 0.5rem 1rem rgba(0, 0, 0, 0.6)'); /* Dark shadow */
+        root.style.setProperty('--scrollbar-thumb-color', '#555555'); /* Darker scrollbar */
+        root.style.setProperty('--highlight-bg-color', 'rgba(60, 60, 60, 0.9)'); /* Highlight background */
+        root.style.setProperty('--highlight-shadow', 'inset 0px 0 20px rgba(0, 0, 0, 0.5)'); /* Highlight shadow */
+        root.style.setProperty('--aya-text-color', '#E0E0E0'); /* Light text for aya */
+    }
+    if (currentTheme === '#121212') {
+        root.style.setProperty('--body-bg-color', '#D2B48C'); // Tan
+        root.style.setProperty('--body-text-color', '#502A0A'); // Dark Wood
+        root.style.setProperty('--primary-bg-color', 'linear-gradient(45deg, #A0522D, #BC8F8F, #8B4513)'); // SaddleBrown, RosyBrown, SaddleBrown
+        root.style.setProperty('--secondary-bg-color', 'rgba(255, 255, 255, 0.8)');
+        root.style.setProperty('--button-bg-color', '#8B4513'); // SaddleBrown
+        root.style.setProperty('--button-text-color', '#fff');
+        root.style.setProperty('--button-hover-color', 'rgba(255, 255, 255, 0.2)');
+        root.style.setProperty('--button-hover-shadow', '0 0.5rem 1rem rgba(0, 0, 0, 0.3)');
+        root.style.setProperty('--scrollbar-thumb-color', '#5555552e');
+        root.style.setProperty('--highlight-bg-color', 'rgba(245, 245, 245, 0.819)');
+        root.style.setProperty('--highlight-shadow', 'inset 0px 0 20px rgba(0, 0, 0, 0.1)');
+        root.style.setProperty('--aya-text-color', '#333');
+    }
+})
