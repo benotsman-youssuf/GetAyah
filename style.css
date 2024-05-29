@@ -278,6 +278,10 @@ button {
   #tafasir > button{
     font-size: 1rem;
   }
+  #theme{
+    top: 10px;
+    left: 10px;
+  }
 }
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   body {

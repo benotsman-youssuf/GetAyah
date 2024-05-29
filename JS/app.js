@@ -82,7 +82,7 @@ const fetchTafseer = async (tafsiirSlug) => {
 let clicks = 0;
 // Event listener for the "Fetch Ayah" button
 btnElement.addEventListener('click' , () => {
-    RandomNum = 289;
+    RandomNum = getRandomInt(1 ,6236 );
     fetchAya(RandomNum);
 });
 next.addEventListener('click' , () => {
