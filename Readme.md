@@ -30,3 +30,6 @@ This project uses the following external resources:
 
 - [amiri Quran](https://fonts.google.com/specimen/Amiri+Quran?query=amir) - for displaying Ayahs
 - [amiri](https://fonts.google.com/specimen/Amiri?query=amir) - for displaying Tafsser
+
+## Demo
+- you can try the app [here](https://youssuf.tech/GetAyah/)
