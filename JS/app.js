@@ -16,9 +16,12 @@ const theme = document.getElementById("theme")
 const next = document.querySelector(".next");
 const previous = document.querySelector(".previous");
 
-let surrahNum, ayahNum ,saadiSlug ,muyassarSlug, ibnkathirSlug , numberOfAyahs , RandomNum , NextAyah;
+const copy = document.querySelector("#copy");
+const translate = document.querySelector("#translate");
 
-const fetchAya = async (random) => {
+let ayah ,surrah , surrahNum, ayahNum ,saadiSlug ,muyassarSlug, ibnkathirSlug , numberOfAyahs , RandomNum , NextAyah , enAyah , enSurrah;
+
+const fetchAya = async (random ) => {
     try {        
         // Fetch the ayah data from the API
         const response = await fetch(
@@ -30,15 +33,23 @@ const fetchAya = async (random) => {
             `https://api.alquran.cloud/v1/ayah/${random+1}/ar.alafasy`
         );
         const nextdata = await nextresponse.json();
-        
+
+        const enAyahresponse = await fetch(
+            `https://api.alquran.cloud/v1/ayah/${random}/en.yusufali`
+        );
+        const enAyahdata = await enAyahresponse.json();
+
         // Extract the surah name, ayah text, surah number, and ayah number
-        const surrah = data.data.surah.name;
-        const ayah = data.data.text;
+        surrah = data.data.surah.name;
+        ayah = data.data.text;
         surrahNum = data.data.surah.number;
         ayahNum = data.data.numberInSurah;
         numberOfAyahs = data.data.surah.numberOfAyahs;
 
         const nextp = nextdata.data.text;
+
+        enAyah = enAyahdata.data.text;
+        enSurrah = enAyahdata.data.surah.englishName;
 
         // Update the DOM elements with the fetched data
         surrahElement.textContent = surrah;
@@ -48,7 +59,7 @@ const fetchAya = async (random) => {
         nextaya.textContent = selectFirstTwoWords(nextp);
 
         // Set the audio source to the corresponding recitation of the ayah
-        audioElement.src = `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${random}.mp3`;
+        audioElement.src = `https://cdn.islamic.network/quran/audio/128//ar.mahermuaiqly/${random}.mp3`;
 
         // Fetch the default tafseer
         fetchTafseer(muyassarSlug);
@@ -82,10 +93,13 @@ const fetchTafseer = async (tafsiirSlug) => {
 let clicks = 0;
 // Event listener for the "Fetch Ayah" button
 btnElement.addEventListener('click' , () => {
+    copy.innerHTML = '<i class="fa-solid fa-copy fa-xl"></i>';
+
     RandomNum = getRandomInt(1 ,6236 );
     fetchAya(RandomNum);
 });
 next.addEventListener('click' , () => {
+    copy.innerHTML = '<i class="fa-solid fa-copy fa-xl"></i>';
     
     clicks++;
     RandomNum++ ;
@@ -94,20 +108,26 @@ next.addEventListener('click' , () => {
 
 });
 previous.addEventListener('click' , () => {
+    copy.innerHTML = '<i class="fa-solid fa-copy fa-xl"></i>';
+
     RandomNum--;
     fetchAya(RandomNum);
 })
 
 window.onload = function() {
+
     RandomNum = getRandomInt(1 ,6236 );
     fetchAya(RandomNum);
 };
 // controlling next aya behaviour
 nextaya.addEventListener('click' , ()=>{
+    copy.innerHTML = '<i class="fa-solid fa-copy fa-xl"></i>';
+
     if (nextaya.style.filter === 'blur(0px)') {
         nextaya.style.filter = 'blur(4px)';
     }
     else nextaya.style.filter = 'blur(0px)';
+
 });
 
 // Event listeners for the tafseer buttons
@@ -139,6 +159,22 @@ function selectFirstTwoWords(str) {
     return result;
 }
 
+copy.addEventListener('click' , ()=>{
+    console.log(ayaElement.textContent);
+    navigator.clipboard.writeText(surrahElement.textContent + " " + ayaNumElement.textContent + " : \n" + "{"+ayaElement.textContent +" }"+ "\n\n" +"التفسير الميسر: "+ tafseerElement.textContent );
+    copy.innerHTML = '<i class="fa-solid fa-check fa-xl"></i>';
+    });
+translate.addEventListener('click' , ()=>{
+    // ayaElement.textContent = enAyah;
+    if (ayaElement.textContent === ayah) {
+        ayaElement.textContent = enAyah;
+        surrahElement.textContent = enSurrah;
+    }
+    else {
+        ayaElement.textContent = ayah;
+        surrahElement.textContent = surrah;
+    }
+});
 document.addEventListener('DOMContentLoaded', function () {
     particlesJS('particles-js', {
         particles: {

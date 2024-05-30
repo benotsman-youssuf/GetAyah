@@ -13,6 +13,8 @@
 - Allows the user to fetch a new Ayah by clicking a button
 - Fetches and displays Tafseer for the displayed Ayah
 - Provides audio playback for the displayed Ayah
+- provides copy button to copy Ayah and its tafsit to make sharing easier
+- add button to translate Ayah to english
 
 ## How to Use
 
@@ -20,7 +22,6 @@
 2. The application will automatically fetch and display an Ayah.
 3. To fetch a new Ayah, click on the button labeled "ارني اية".
 4. To fetch Tafseer, click on the button labeled'"تفسير ابن كثير", "التفسير الميسر" or "تفسير السعدي".
-
 ## Dependencies
 
 This project uses the following external resources:

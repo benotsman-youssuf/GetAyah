@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-  
 :root {
   --body-bg-color: #D2B48C; /* Tan */
   --body-text-color: #502A0A; /* Dark Wood */
@@ -17,7 +16,6 @@
   --aya-text-color: #333;
 }
 
-
 /* Body styles */
 body {
   font-family: 'Amiri', serif;
@@ -29,8 +27,9 @@ body {
   height: 100vh;
   overflow-y: hidden;
   background-color: var(--body-bg-color); /* Tan */
-  color: var(); /* Dark Wood */
+  color: var(--body-text-color); /* Dark Wood */
 }
+
 /* Background animation */
 #particles-js {
   position: fixed;
@@ -45,6 +44,7 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
+
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;
@@ -56,7 +56,8 @@ body {
     background-position: 0% 50%;
   }
 }
-#theme{
+
+#theme {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -67,6 +68,7 @@ body {
   border-radius: 50%;
   color: black;
 }
+
 /* Wrapper styles */
 #wrapper {
   background-color: var(--secondary-bg-color);
@@ -83,17 +85,42 @@ body {
   gap: 1rem;
   backdrop-filter: blur(10px);
 }
-#head{
+
+#head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.info {
   font-size: 2rem;
   font-weight: bold;
   color: #A0522D; /* SaddleBrown */
 }
+
+#copy, #translate {
+  width: 40px;
+  height: 40px;
+  background-color: #8b451342;
+  border-radius: 50%;
+  border: none;  
+}
+
 /* Aya styles */
 #aya {
   font-family: 'Amiri Quran', serif;
   font-size: 2rem;
   color: var(--aya-text-color);
 }
+
+.features {
+  display: flex;
+  gap: 1rem;
+  background: #8b451310;
+  border-radius: 20px;
+}
+
 .aya {
   overflow-y: scroll;
   max-height: 350px;
@@ -101,6 +128,7 @@ body {
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
 }
+
 #tafasir {
   display: flex;
   flex-direction: row;
@@ -110,6 +138,7 @@ body {
   background: #8b451310;
   border-radius: 20px;
 }
+
 #tafasir > button {
   border: none;
   background-color: transparent;
@@ -118,8 +147,9 @@ body {
   font-size: 1.3rem;
   position: relative;
 }
+
 #tafsir {
-  color:var(--aya-text-color);
+  color: var(--aya-text-color);
   overflow-y: scroll;
   max-height: 200px;
   font-size: 1.3rem;
@@ -127,19 +157,23 @@ body {
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
 }
-#tafsir:hover , .aya:hover {
+
+#tafsir:hover, .aya:hover {
   transition: all 0.3s ease-in-out;
   background-color: var(--highlight-bg-color);
   box-shadow: var(--highlight-shadow);
 }
-#tafsir::-webkit-scrollbar , .aya::-webkit-scrollbar {
+
+#tafsir::-webkit-scrollbar, .aya::-webkit-scrollbar {
   width: 10px;
   background-color: transparent;
 }
-#tafsir::-webkit-scrollbar-thumb , .aya::-webkit-scrollbar-thumb {
+
+#tafsir::-webkit-scrollbar-thumb, .aya::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-color);
   border-radius: 10px;
 }
+
 /* Button styles */
 #butn {
   background-color: var(--button-bg-color); /* SaddleBrown */
@@ -154,6 +188,7 @@ body {
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
+
 #butn::before {
   content: '';
   position: absolute;
@@ -167,22 +202,27 @@ body {
   opacity: 0;
   transition: all 0.3s ease-in-out;
 }
+
 #butn:hover::before {
   width: 200%;
   height: 200%;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
+
 #butn:hover {
   box-shadow: var(--button-hover-shadow);
   transform: translateY(-3px);
 }
+
 button {
   cursor: pointer;
 }
+
 #butn i {
   margin-right: 0.5rem;
 }
+
 #tafasir > button::after {
   content: '';
   position: absolute;
@@ -193,14 +233,17 @@ button {
   background-color: transparent;
   transition: all 0.3s ease-in-out;
 }
+
 #tafasir > button.active {
   color: #D09F58; /* RosyBrown */
   font-weight: bolder;
 }
+
 .clicks {
   display: flex;
   gap: 50px;
 }
+
 .next, .previous {
   background: transparent;
   border: none;
@@ -208,51 +251,58 @@ button {
   color: var(--body-text-color);
   transition: all 0.3ms ease-in-out;
 }
+
 .next:hover, .previous:hover {
   transform: scale(1.1);
   transition: all 0.3ms ease-in-out;
 }
+
 .nextayah {
   position: absolute;
   width: 30%;
   left: 0px;
   bottom: -59px;
-  background-color:  var(--secondary-bg-color);
+  background-color: var(--secondary-bg-color);
   border-radius: 0px 0px 16px 16px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+
 #nextayah {
   filter: blur(4px);
   font-size: 1.4rem;
   margin: 1rem 1rem 0.3rem 1rem;
   cursor: pointer;
-  color:var(--aya-text-color);
+  color: var(--aya-text-color);
+} 
 
-}
 #aya-num {
   color: white;
   background: #A0522D;
   border-radius: 10px;
 }
+
 @media screen and (max-width: 768px), (max-width: 1024px) {
   #nextayah {
     font-size: 1.1rem;
   }
+  
   .nextayah {
     width: 40%;
-    transform: translateY(-8px);
+    transform: translateY(-7.5px);
   }
+  
   #wrapper {
     width: 90%;
     padding: 0.5rem;
     transform: translateY(-60px);
     gap: 0.3rem;
   }
+  
   #aya {
     font-size: 1.3rem;
-   
   }
-  .aya{
+  
+  .aya {
     overflow-y: scroll;
     background: #ffffff;
     max-height: 270px;
@@ -262,38 +312,33 @@ button {
     background: var(--highlight-bg-color);
     box-shadow: var(--highlight-shadow);
   }
+  
   #head {
     font-size: 1.2rem;
   }
+  
   #butn {
     padding: 0.8rem 1.6rem;
     font-size: 1rem;
   }
+  
   #tafsir {
     font-size: 15px;
     max-height: 100px;
     background-color: var(--highlight-bg-color);
     box-shadow: var(--highlight-shadow);
   }
-  #tafasir > button{
+  
+  #tafasir > button {
     font-size: 1rem;
   }
-  #theme{
+  
+  #theme {
     top: 10px;
     left: 10px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
-  body {
-    zoom: 0.67; /* Scale the content to 67% */
-  }
-  #wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
+
 @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx) {
   body {
     zoom: 0.8; /* Scale the content to 80% */
@@ -306,7 +351,16 @@ button {
     transform: translate(-50%, -50%);
   }
 }
-@media screen and (max-width: 1024px) {
-  /* Tablet styles */
-  /* Add your tablet-specific styles here */
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
+  body {
+    zoom: 0.67; /* Scale the content to 67% */
+  }
+  
+  #wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
