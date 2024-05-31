@@ -105,14 +105,16 @@ const fetchSidebar = async () => {
             const surahTitle = document.createElement("li");
             surahTitle.classList.add("surah-title");
             tableOfContent.appendChild(surahTitle);
-            surahTitle.textContent = surah.name;
-
+            surahTitle.textContent = surah.name ;
             let sum = 0;
             surahTitle.addEventListener("click", () => {
                 for (let j = 0; j < data.data[i].number-1; j++) {
                     sum += data.data[j].numberOfAyahs;
                 }
-            fetchAya(sum + 1);
+                RandomNum = sum +1 ;
+            fetchAya(RandomNum);
+            sidebar.style.width = "0";
+            menu.style.display = "block";
             });
 
         }

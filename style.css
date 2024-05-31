@@ -15,11 +15,7 @@
   --highlight-shadow: inset 0px 0 20px rgba(0, 0, 0, 0.1);
   --aya-text-color: #333;
 }
-/* *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+
 /* Body styles */
 body {
   font-family: 'Amiri', serif;
@@ -305,24 +301,25 @@ button {
   
   .nextayah {
     width: 40%;
-    transform: translateY(-7.5px);
+    transform: translateY(-9px);
   }
   
   #wrapper {
     width: 90%;
+    
     padding: 0.5rem;
     transform: translateY(-60px);
     gap: 0.3rem;
   }
   
   #aya {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
   
   .aya {
     overflow-y: scroll;
     background: #ffffff;
-    max-height: 270px;
+    max-height: 300px;
     width: 95%;
     padding: 0.2rem;
     border-radius: 0.5rem;
@@ -340,8 +337,8 @@ button {
   }
   
   #tafsir {
-    font-size: 15px;
-    max-height: 100px;
+    font-size: 1.2rem;
+    max-height: 150px;
     background-color: var(--highlight-bg-color);
     box-shadow: var(--highlight-shadow);
   }
@@ -349,10 +346,8 @@ button {
   #tafasir > button {
     font-size: 1rem;
   }
-  
-  #theme {
-    top: 10px;
-    left: 10px;
+  .surah-title {
+    font-size: 2.5rem;
   }
 }
 
@@ -404,8 +399,6 @@ button {
   right: 0;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5px); /* Reduced blur intensity */
-  overflow-y: auto;
-  overflow-x: hidden;
   transition: width 0.3s ease-in-out;
   border-radius: 20px 0 0 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -414,10 +407,11 @@ button {
 
 .sidebarHead {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* justify-content: space-around; */
+  gap: 40%;
+  align-items: right;
   width: 100%;
-  padding: 10px 20px;
+  padding: 20px 0px 20px 0px;
   background: rgba(255, 255, 255, 0.6); /* Increased opacity */
   border-radius: 20px 20px 0 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -432,9 +426,6 @@ button {
   border: none;
   border-radius: 50%;
   color: var(--button-text-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
   will-change: background; /* Inform the browser about background changes */
@@ -446,7 +437,7 @@ button {
 
 #sidebar h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--body-text-color);
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Reduced text shadow */
 }
@@ -456,13 +447,15 @@ button {
   padding: 0;
   margin: 0;
   width: 100%;
+  overflow-y: scroll;
 }
 
 #sidebar ul li {
+  text-align: right;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.6); /* Increased opacity */
+  background:var(--secondary-bg-color); 
   color: var(--body-text-color);
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
