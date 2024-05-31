@@ -11,7 +11,11 @@ const saadiElement = document.getElementById("saadi");
 const ibnkathirElement = document.getElementById("ibn-kathir");
 
 const root = document.documentElement;
-const theme = document.getElementById("theme")
+const theme = document.getElementById("theme");
+const menu = document.getElementById("menu");
+const sidebar = document.getElementById("sidebar");
+const closeSidebar = document.getElementById("closeSidebar");
+const tableOfContent =  document.getElementById("tableOfContent");
 
 const next = document.querySelector(".next");
 const previous = document.querySelector(".previous");
@@ -90,6 +94,36 @@ const fetchTafseer = async (tafsiirSlug) => {
         console.error("Error fetching Tafseer:", error);
     }
 };
+const fetchSidebar = async () => {
+    try {
+        const response = await fetch(
+            `https://api.alquran.cloud/v1/surah`
+        );
+        const data = await response.json();
+        for (let i = 0; i < data.data.length; i++) {
+            const surah = data.data[i];
+            const surahTitle = document.createElement("li");
+            surahTitle.classList.add("surah-title");
+            tableOfContent.appendChild(surahTitle);
+            surahTitle.textContent = surah.name;
+
+            let sum = 0;
+            surahTitle.addEventListener("click", () => {
+                for (let j = 0; j < data.data[i].number-1; j++) {
+                    sum += data.data[j].numberOfAyahs;
+                }
+            fetchAya(sum + 1);
+            });
+
+        }
+    } 
+    catch (error) {
+        
+    }
+};
+fetchSidebar();
+// Initial fetch of the ayah data
+
 let clicks = 0;
 // Event listener for the "Fetch Ayah" button
 btnElement.addEventListener('click' , () => {
@@ -175,6 +209,18 @@ translate.addEventListener('click' , ()=>{
         surrahElement.textContent = surrah;
     }
 });
+menu.addEventListener('click', () => {
+    sidebar.style.width = "30%";
+    menu.style.display = "none";
+    if (window.innerWidth < 800) {
+        sidebar.style.width = "100%";
+    }
+});
+closeSidebar.addEventListener('click', () => {
+    sidebar.style.width = "0";
+    menu.style.display = "block";
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     particlesJS('particles-js', {
         particles: {

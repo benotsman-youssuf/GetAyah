@@ -15,7 +15,11 @@
   --highlight-shadow: inset 0px 0 20px rgba(0, 0, 0, 0.1);
   --aya-text-color: #333;
 }
-
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
 /* Body styles */
 body {
   font-family: 'Amiri', serif;
@@ -57,7 +61,7 @@ body {
   }
 }
 
-#theme {
+#theme  {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -67,6 +71,19 @@ body {
   border: none;
   border-radius: 50%;
   color: black;
+
+}
+#menu{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--secondary-bg-color);
+  border: none;
+  border-radius: 50%;
+  color: black;
+  transition: 0.1s;
 }
 
 /* Wrapper styles */
@@ -363,4 +380,102 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+#sidebar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  flex-direction: column;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px); /* Reduced blur intensity */
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease-in-out;
+  border-radius: 20px 0 0 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  will-change: width; /* Inform the browser about width changes */
+}
+
+.sidebarHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.6); /* Increased opacity */
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#closeSidebar {
+  font-weight: 900;
+  font-size: 1rem;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, var(--button-bg-color), var(--body-text-color));
+  border: none;
+  border-radius: 50%;
+  color: var(--button-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  will-change: background; /* Inform the browser about background changes */
+}
+
+#closeSidebar:hover {
+  background: linear-gradient(45deg, var(--body-text-color), var(--button-bg-color));
+}
+
+#sidebar h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--body-text-color);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Reduced text shadow */
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#sidebar ul li {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.6); /* Increased opacity */
+  color: var(--body-text-color);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  will-change: background, box-shadow; /* Inform the browser about background and box-shadow changes */
+}
+
+#sidebar ul li:hover {
+  background: rgba(255, 255, 255, 0.8); /* Increased opacity */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar ul li.active {
+  background: linear-gradient(45deg, var(--button-bg-color), var(--body-text-color));
+  color: var(--button-text-color);
 }
